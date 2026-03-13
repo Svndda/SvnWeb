@@ -1,43 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="es">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <!-- Page title -->
+  <title>Portafolio | Aaron Carmona Sánchez</title>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+
+      <!-- Navigation links -->
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="#about">Sobre mí</a>
+        <a class="nav-link" href="#skills">Tecnologías</a>
+        <a class="nav-link" href="#experience">Experiencia</a>
+        <a class="nav-link" href="#education">Educación</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- Header / Hero section -->
+  <header id="home" class="bg-primary text-white text-center py-5">
+    <div class="container">
+
+      <h1 class="display-4 fw-bold">
+        Aaron Carmona Sánchez, C21705
+      </h1>
+
+      <p class="lead">
+        Desarrollador de software enfocado en aplicaciones de alto rendimiento,
+        arquitecturas escalables y desarrollo multiplataforma.
+      </p>
+
+    </div>
+  </header>
+
+
+  <!-- About me -->
+  <section id="about" class="py-5">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-10">
+
+          <h2 class="mb-3">Sobre mí</h2>
+
+          <p>
+            Soy estudiante avanzado de Ciencias de la Computación en la
+            Universidad de Costa Rica y desarrollador de software con experiencia
+            en el diseño e implementación de aplicaciones escalables y de alto
+            rendimiento.
+          </p>
+
+          <p>
+            Mi enfoque profesional se encuentra en transformar necesidades técnicas complejas en
+            soluciones de software eficientes, priorizando siempre la calidad del código,
+            la mantenibilidad y la experiencia del usuario final. Trabajo principalmente
+            en el desarrollo de aplicaciones móviles Android, sistemas de escritorio
+            en C++ y APIs RESTful.
+          </p>
+
+          <p>
+            Actualmente participo en un proyecto de investigación donde
+            desarrollo una API RESTful y aplicaciones móviles con integración de sistemas de mapas,
+            procesamiento de coordenadas geográficas, solicitudes de usuarios y gestión de datos
+            con uso de arquitecturas modernas basadas en MVVM.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-5">
+    <div class="container">
+
+      <h2 class="mb-4">Experiencia</h2>
+
+      <div class="mb-4">
+
+        <h5>Instituto de Investigaciones en Ingeniería (INII) — Universidad de Costa Rica</h5>
+
+        <p><strong>Desarrollador de Software</strong> | 2024 – Presente</p>
+
+        <ul>
+          <li>
+            Desarrollo de una aplicación Android utilizando Kotlin con
+            arquitectura híbrida MVC–MVVM en pro de mejorar la mantenibilidad
+            y escalabilidad del código.
+          </li>
+
+          <li>
+            Implementación de consumo de APIs RESTful utilizando Retrofit,
+            OkHttp y Gson para una comunicación eficiente y correcta con el servidor.
+          </li>
+
+          <li>
+            Desarrollo de funcionalidades de geolocalización y visualización
+            cartográfica utilizando OSMDroid y PROJ4J.
+          </li>
+
+          <li>
+            Optimización de rendimiento mediante la incoporación de LiveData, ViewModel y manejo
+            eficiente de hilos de ejecución.
+          </li>
+
+          <li>
+            Desarrollo de una API RESTful en PHP con autenticación basada
+            en JWT.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h5>Macanas Place</h5>
+
+        <p><strong>Desarrollador C++ / Qt6</strong> | 2024</p>
+
+        <ul>
+          <li>
+            Desarrollo completo de un sistema POS utilizando C++17 y Qt6.
+          </li>
+
+          <li>
+            Implementación de una arquitectura MVC para mejorar la
+            mantenibilidad del sistema.
+          </li>
+
+          <li>
+            Optimización del rendimiento de la interfaz gráfica mediante
+            el uso de señales y slots de Qt.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills and Technologies -->
+  <section id="skills" class="bg-light py-5">
+    <div class="container">
+
+      <h2 class="mb-4">Tecnologías</h2>
+
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <h5>Lenguajes de programación</h5>
+
+          <ul>
+            <li>Kotlin (avanzado)</li>
+            <li>C / C++ (avanzado)</li>
+            <li>Python (intermedio)</li>
+            <li>Java (intermedio)</li>
+            <li>PHP (intermedio)</li>
+            <li>Assembly (básico)</li>
+          </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+          <h5>Frameworks y tecnologías</h5>
+
+          <ul>
+            <li>Android Jetpack (ViewModel, LiveData, Navigation, ViewBinding)</li>
+            <li>Jetpack Compose</li>
+            <li>Dagger Hilt (inyección de dependencias)</li>
+            <li>Retrofit, OkHttp, Gson</li>
+            <li>Qt6 para aplicaciones de escritorio</li>
+            <li>OSMDroid y PROJ4J para sistemas GIS</li>
+            <li>Gradle Kotlin DSL</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Educacion -->
+  <section id="education" class="bg-light py-5">
+    <div class="container">
+
+      <h2 class="mb-4">Educación</h2>
+
+      <p>
+        <strong>Universidad de Costa Rica (UCR)</strong>
+      </p>
+
+      <p>
+        Bachillerato en Ciencias de la Computación
+        (Estudiante avanzado)
+      </p>
+
+      <p>
+        2022 – Presente
+      </p>
+
+    </div>
+  </section>
+
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <h5 class="mb-3">Contacto</h5>
+        <p class="mb-1">
+            <a class="text-white text-decoration-none">
+                <i class="bi bi-envelope-fill"></i> aaron.carmona@ucr.ac.cr
+            </a>
+        </p>
+    </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
