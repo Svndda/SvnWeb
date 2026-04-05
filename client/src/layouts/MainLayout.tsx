@@ -1,15 +1,13 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
 
 export default function MainLayout() {
   return (
     <div className="app">
-      <header className="container flex">
-        <nav className="gap-md flex">
-          <Link to="/" className="button">Inicio</Link>
-          <Link to="/services" className="button">Servicios</Link>
-          <Link to="/portfolio" className="button">Portfolio</Link>
-        </nav>
-      </header>
+       <ResponsiveAppBar appName="SvnWeb" navLinks={[
+        { label: 'Inicio', route: '/' },
+        { label: 'Servicios', route: '/services' },
+       ]} /> 
 
       <main className="container flex-col centered" style={{ flexGrow: 1 }}>
         <Outlet />
