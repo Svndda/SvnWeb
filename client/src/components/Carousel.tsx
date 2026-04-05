@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, IconButton, styled } from '@mui/material';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CarouselContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
   width: '100%',
@@ -29,7 +28,6 @@ const Slide = styled(Box, {
   },
 }));
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NavButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: '50%',
