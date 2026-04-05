@@ -39,7 +39,7 @@ function App() {
 
         { /* App UCR related routes*/}
         <Route path="/app-ucr" element={<SecondaryLayout appName="App UCR" navLinks={appUCRLinks} /* settingsLinks={settingsLinks} *//>}> 
-          <Route path="/app-ucr" element={<HomeUCR />} />
+          <Route index element={<HomeUCR />} />
         </Route>
       </Routes>
     </BrowserRouter>
