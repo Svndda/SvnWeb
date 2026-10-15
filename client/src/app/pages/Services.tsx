@@ -21,6 +21,11 @@ const SERVICES_DATA: ServiceItem[] = [
     description: 'Módulo de servicios de manicura y pedicura.',
     path: '/joshe-manicurista',
   },
+  {
+    title: 'Mi Amor',
+    description: 'Salida romántica.',
+    path: '/mi-amor',
+  }
 ];
 
 export default function Services() {

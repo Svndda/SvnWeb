@@ -1,0 +1,141 @@
+.love-page {
+  --rose: #d94f73;
+  --rose-dark: #a92e52;
+  --ink: #4a3541;
+  --muted-pink: #9f7c8b;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #fff9fa;
+  color: var(--ink);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+.love-page button, .love-page input { font: inherit; }
+.love-glow { position: absolute; width: 400px; height: 400px; border-radius: 50%; filter: blur(90px); opacity: .34; pointer-events: none; }
+.love-glow-one { background: #ffc4d2; top: -200px; right: -100px; }
+.love-glow-two { background: #ffe7c5; bottom: -230px; left: -150px; }
+.love-shell { position: relative; z-index: 1; width: min(100% - 36px, 780px); margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+.love-header { height: 76px; display: flex; align-items: center; justify-content: space-between; color: #a47e8e; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.love-mark { color: var(--rose); font-size: 32px; line-height: 1; text-decoration: none; }
+.love-header-heart { color: #e8a2b5; font-size: 18px; }
+.date-card, .proposal-card { width: min(100%, 560px); margin: auto; padding: 48px 56px 38px; border: 1px solid #f3dce3; border-radius: 28px; background: rgba(255,255,255,.84); box-shadow: 0 22px 70px #9d60731a; text-align: center; }
+.eyebrow { display: block; color: var(--rose); font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.hero-heart { margin: 20px auto 8px; color: #e67894; font-family: Georgia, serif; font-size: 72px; line-height: 1; animation: heartbeat 2.4s ease-in-out infinite; }
+.love-page h1 { margin: 0; color: #513744; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(32px, 5vw, 45px); font-weight: 500; letter-spacing: -.04em; line-height: 1.15; }
+.love-page h1 em { color: var(--rose); font-weight: 500; }
+.love-copy { max-width: 410px; margin: 17px auto 25px; color: #896c7a; font-size: 14px; line-height: 1.8; }
+.date-form { display: grid; gap: 10px; text-align: left; }
+.date-form label { color: #735463; font-size: 12px; font-weight: 700; }
+.date-form input { width: 100%; min-height: 48px; padding: 0 13px; border: 1px solid #efd5de; border-radius: 11px; outline: none; background: #fffafb; color: #614653; }
+.date-form input:focus { border-color: #dc7893; box-shadow: 0 0 0 3px #dc789320; }
+.love-button, .soft-button { min-height: 48px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--rose); box-shadow: 0 8px 20px #d94f7330; color: white; cursor: pointer; font-size: 13px; font-weight: 700; transition: transform .18s ease, background .18s ease; }
+.love-button:hover, .soft-button:hover { transform: translateY(-2px); background: var(--rose-dark); }
+.love-button span { margin-left: 8px; font-size: 17px; }
+.tiny-note { margin: 19px 0 0; color: #b093a0; font-size: 11px; line-height: 1.6; }
+.game-section { width: min(100%, 480px); margin: auto; padding: 20px 0 36px; text-align: center; }
+.game-heading h1 { margin-top: 9px; font-size: clamp(30px, 5vw, 40px); }
+.game-heading p { margin: 10px 0 17px; color: #987989; font-size: 13px; line-height: 1.6; }
+.date-pill { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; padding: 9px 15px; border: 1px solid #f1dce3; border-radius: 999px; background: #fff; color: #997786; font-size: 11px; }
+.date-pill span { color: var(--rose); }
+.game-card { padding: 17px; border: 1px solid #f1dce3; border-radius: 22px; background: #fff; box-shadow: 0 18px 55px #9d607315; }
+.score-row { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 12px; text-align: left; }
+.score-row > div { display: grid; gap: 2px; }
+.score-label { color: #b293a0; font-size: 9px; font-weight: 700; letter-spacing: .14em; }
+.score-row strong { color: #614352; font-family: Georgia, serif; font-size: 22px; }
+.target-score strong { color: var(--rose); }
+.target-score strong span { font-size: 17px; }
+.reset-button { width: 34px; height: 34px; border: 1px solid #f0dbe2; border-radius: 50%; background: #fff9fa; color: #c16b85; cursor: pointer; font-size: 22px; }
+.progress-track { height: 5px; overflow: hidden; margin-bottom: 14px; border-radius: 9px; background: #f8eaf0; }
+.progress-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ef91a9, #d94f73); transition: width .25s ease; }
+.game-footer { display: flex; justify-content: space-between; padding: 12px 2px 0; color: #a88a98; font-size: 10px; }
+.game-footer strong { color: #765568; }
+.encouragement { margin-top: 17px; color: #a17f8f; font-family: Georgia, serif; font-size: 14px; font-style: italic; }
+.encouragement span { color: var(--rose); }
+.waiting-card { display: flex; align-items: center; gap: 15px; margin-top: 16px; padding: 17px 19px; border: 1px solid #f0d9e1; border-radius: 16px; background: #fff; text-align: left; box-shadow: 0 10px 28px #9d607310; }
+.waiting-heart { color: var(--rose); font-size: 27px; }
+.waiting-card strong { color: #684657; font-family: Georgia, serif; font-size: 17px; }
+.waiting-card p { margin: 4px 0; color: #9b7b8b; font-size: 12px; }
+.countdown { color: var(--rose); font-size: 12px; font-weight: 700; }
+.reveal-button { min-height: 38px; margin-top: 7px; font-size: 12px; }
+.proposal-card { position: relative; overflow: hidden; }
+.proposal-card::before, .proposal-card::after { position: absolute; color: #f5c8d4; font-size: 23px; content: '♥'; }
+.proposal-card::before { top: 28px; left: 28px; transform: rotate(-18deg); }
+.proposal-card::after { right: 28px; bottom: 30px; transform: rotate(18deg); }
+.proposal-heart { margin: 20px 0 8px; color: #e67894; font-size: 44px; animation: heartbeat 1.8s ease-in-out infinite; }
+.answer-buttons { display: grid; gap: 10px; width: min(100%, 260px); margin: 0 auto; }
+.soft-button { border: 1px solid #f0d3dd; background: #fff4f7; box-shadow: none; color: var(--rose-dark); }
+.soft-button:hover { color: white; }
+.proposal-date { margin-top: 7px; }
+.love-footer { padding: 20px 0 24px; color: #b195a1; text-align: center; font-size: 10px; letter-spacing: .1em; }
+.love-footer span { margin-left: 5px; color: #df7893; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.09); } 24% { transform: scale(1); } 36% { transform: scale(1.06); } }
+@media (max-width: 540px) {
+  .love-shell { width: min(100% - 24px, 480px); }
+  .love-header { height: 60px; font-size: 9px; }
+  .date-card, .proposal-card { padding: 36px 23px 30px; border-radius: 22px; }
+  .game-section { padding-top: 18px; }
+  .game-card { padding: 11px; border-radius: 18px; }
+  .game-footer { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { .love-page *, .love-page *::before, .love-page *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+/* ───────── Controles de sonido ───────── */
+.sound-controls { display: flex; gap: 6px; }
+.sound-button { display: grid; width: 32px; height: 32px; place-items: center; padding: 0; border: 1px solid #f0dbe2; border-radius: 50%; background: #fff; color: #c16b85; cursor: pointer; transition: background .18s ease, color .18s ease, transform .18s ease; }
+.sound-button svg { width: 16px; height: 16px; }
+.sound-button:hover { background: #fff0f4; transform: translateY(-1px); }
+.sound-button[aria-pressed='false'] { background: #fff9fa; color: #c9b3bd; }
+.sound-button:focus-visible, .love-footer-button:focus-visible, .reset-button:focus-visible { outline: 3px solid #d94f7380; outline-offset: 2px; }
+.love-footer-button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; }
+
+/* ───────── Tablero ───────── */
+.candy-sprites { position: absolute; width: 0; height: 0; overflow: hidden; }
+.candy-board { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; padding: 9px; border: 2px solid #fff; border-radius: 20px; background: linear-gradient(155deg, #ffd9e6 0%, #f4d9f8 55%, #dfe2ff 100%); box-shadow: inset 0 2px 8px #ffffffb3, inset 0 -3px 10px #c66f9330, 0 10px 26px #d94f7324; touch-action: manipulation; }
+.candy-board.is-busy { pointer-events: none; }
+
+.candy-cell { position: relative; display: grid; aspect-ratio: 1; place-items: center; padding: 0; border: 1px solid #ffffffd9; border-radius: 12px; background: linear-gradient(145deg, #ffffffe0, #fff1f6d9); box-shadow: inset 0 1px 0 #fff, inset 0 -2px 4px #d8809d1c, 0 2px 5px #7d415014; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background .16s ease, box-shadow .16s ease, border-color .16s ease; }
+.candy-cell.is-alt { background: linear-gradient(145deg, #ffffffa8, #ffe7ef99); }
+.candy-cell:hover { border-color: #fff; background: linear-gradient(145deg, #fff, #ffeef4); }
+.candy-cell:focus-visible { z-index: 2; outline: 3px solid #d94f7380; outline-offset: 2px; }
+
+/* ───────── Dulce (fruta brillante) ───────── */
+.candy-icon-wrap { position: relative; display: grid; width: 90%; height: 90%; place-items: center; }
+.candy-icon-wrap::before { position: absolute; right: 16%; bottom: 1%; left: 16%; height: 13%; border-radius: 50%; background: radial-gradient(ellipse at center, #7a2d4a3d, transparent 70%); content: ''; }
+.candy-art { position: relative; z-index: 1; width: 100%; height: 100%; overflow: visible; transition: transform .16s cubic-bezier(.2, .75, .25, 1); }
+.candy-cell:hover .candy-art { transform: scale(1.08) rotate(-3deg); }
+
+/* ───────── Dulces especiales ───────── */
+.special-overlay { pointer-events: none; }
+.special-overlay.special-striped-h, .special-overlay.special-striped-v, .special-overlay.special-wrapped { animation: special-shimmer 2.2s ease-in-out infinite; }
+.bomb-ring { transform-origin: 32px 35px; animation: bomb-spin 7s linear infinite; pointer-events: none; }
+.candy-cell.has-striped-h .candy-art, .candy-cell.has-striped-v .candy-art, .candy-cell.has-wrapped .candy-art, .candy-cell.has-color-bomb .candy-art { animation: special-bob 2.4s ease-in-out infinite; }
+.candy-cell.has-striped-h, .candy-cell.has-striped-v, .candy-cell.has-wrapped, .candy-cell.has-color-bomb { border-color: #f4c46c; box-shadow: inset 0 1px 0 #fff, 0 0 0 1px #f4c46c66, 0 4px 12px #e0a43a40; }
+
+/* ───────── Selección y explosión ───────── */
+.candy-cell.is-selected { z-index: 2; border-color: #e0668a; background: linear-gradient(145deg, #fff, #ffe0ea); box-shadow: 0 0 0 3px #e0668a40, 0 6px 14px #d94f7333; }
+.candy-cell.is-selected .candy-art { animation: candy-jelly .9s ease-in-out infinite; }
+.candy-cell.is-clearing { z-index: 3; }
+.candy-cell.is-clearing .candy-icon-wrap { animation: candy-pop .2s ease-in forwards; }
+.candy-cell.is-clearing::before { position: absolute; z-index: 3; inset: 12%; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 14px #ff8fb0, inset 0 0 8px #ffb3c8; content: ''; pointer-events: none; animation: candy-burst .3s ease-out forwards; }
+
+/* ───────── Guía de especiales ───────── */
+.special-guide { display: grid; gap: 6px; margin: 12px 2px 0; color: #a18491; text-align: left; font-size: 10px; }
+.special-guide > div { display: flex; align-items: center; gap: 8px; }
+.special-guide b { color: #775366; font-weight: 700; }
+.guide-icon { display: grid; flex: none; width: 26px; height: 26px; place-items: center; border: 1px solid #f4dde5; border-radius: 8px; background: #fff7f9; }
+.guide-icon .candy-icon-wrap { width: 88%; height: 88%; }
+.guide-icon .candy-icon-wrap::before { display: none; }
+.guide-icon .special-overlay, .guide-icon .bomb-ring { animation: none; }
+
+@keyframes candy-pop { 35% { transform: scale(1.22); filter: brightness(1.2); } to { transform: scale(.1) rotate(35deg); opacity: 0; } }
+@keyframes candy-burst { from { transform: scale(.4); opacity: 1; } to { transform: scale(1.7); opacity: 0; } }
+@keyframes candy-jelly { 0%, 100% { transform: scale(1.1, 1.1); } 30% { transform: scale(1.2, .98); } 60% { transform: scale(.98, 1.18); } }
+@keyframes special-bob { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes special-shimmer { 0%, 100% { opacity: .78; } 50% { opacity: 1; } }
+@keyframes bomb-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 540px) {
+  .candy-board { gap: 4px; padding: 6px; border-radius: 16px; }
+  .candy-cell { border-radius: 9px; }
+  .sound-button { width: 30px; height: 30px; }
+}
