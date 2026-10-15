@@ -11,12 +11,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Username is required' });
   }
 
+  const apiKey = process.env.RAPIDAPI_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: 'Instagram API is not configured' });
+  }
+
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'x-rapidapi-host': 'instagram120.p.rapidapi.com',
-      'x-rapidapi-key': "c0e0fffbaamsh2852b5610ff2e7bp1e7e8fjsn979c9edd92de"
+      'x-rapidapi-key': apiKey
     },
     body: JSON.stringify({ username: userToQuery, maxId: "" })
   };
