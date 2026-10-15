@@ -25,3 +25,7 @@ yarn-error.log*
 .env
 .env.build
 .vercel
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
