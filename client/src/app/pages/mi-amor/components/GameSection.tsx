@@ -1,5 +1,4 @@
 import { useSound } from '../audio/useSound';
-import { TARGET } from '../constants';
 import type { CandyGame } from '../hooks/useCandyGame';
 import { CandyBoard } from './CandyBoard';
 import { DatePill } from './DatePill';
@@ -11,7 +10,9 @@ type GameSectionProps = { game: CandyGame; date: Date };
 
 export function GameSection({ game, date }: GameSectionProps) {
   const { play } = useSound();
-  const { board, selected, clearing, isBusy, score, moves, levelComplete, boardRef, selectCandy, reset } = game;
+  const { board, selected, clearing, isBusy, score, level, target, moves, boardRef, selectCandy, reset } = game;
+
+  const levelComplete = level > 1;
 
   const handleReset = () => {
     play('reset');
@@ -21,7 +22,7 @@ export function GameSection({ game, date }: GameSectionProps) {
   return (
     <section className="game-section">
       <div className="game-heading">
-        <span className="eyebrow">NIVEL 1 · HECHO CON AMOR</span>
+        <span className="eyebrow">NIVEL {level} · HECHO CON AMOR</span>
         <h1>
           Un juego para <em>Mi amor</em>
         </h1>
@@ -29,7 +30,7 @@ export function GameSection({ game, date }: GameSectionProps) {
       </div>
       <DatePill date={date} withIcon />
       <div className="game-card">
-        <ScoreBar score={score} target={TARGET} onReset={handleReset} />
+        <ScoreBar score={score} target={target} onReset={handleReset} />
         <CandyBoard board={board} selected={selected} clearing={clearing} isBusy={isBusy} boardRef={boardRef} onSelect={selectCandy} />
         <SpecialGuide />
         <div className="game-footer">
