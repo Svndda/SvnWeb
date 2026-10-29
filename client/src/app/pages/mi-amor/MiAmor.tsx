@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../../../styles/MiAmor.css';
 import { playSound } from './audio/soundEngine';
 import { useAudioLifecycle } from './audio/useAudioLifecycle';
@@ -18,7 +18,17 @@ export default function MiAmor() {
   const game = useCandyGame();
   const [answered, setAnswered] = useState(false);
 
-  const canAsk = dateReached;
+  // Guardamos el nivel actual en el que el jugador inicia la sesión.
+  const currentPlayingLevel = useRef(game.level);
+
+  useEffect(() => {
+    if (game.level < currentPlayingLevel.current) {
+      currentPlayingLevel.current = game.level;
+    }
+  }, [game.level]);
+
+  const isLevelCompleted = game.level > currentPlayingLevel.current;
+  const canAsk = isLevelCompleted && dateReached;
 
   const handleSaveDate = () => {
     if (!saved.save()) return;
@@ -44,14 +54,14 @@ export default function MiAmor() {
   else content = <DateCard value={saved.dateValue} onChange={saved.setDateValue} onSubmit={handleSaveDate} />;
 
   return (
-    <main className="love-page">
-      <div className="love-glow love-glow-one" />
-      <div className="love-glow love-glow-two" />
-      <div className="love-shell">
-        <LoveHeader />
-        {content}
-        <LoveFooter onResetDate={handleResetDate} />
-      </div>
-    </main>
+      <main className="love-page">
+        <div className="love-glow love-glow-one" />
+        <div className="love-glow love-glow-two" />
+        <div className="love-shell">
+          <LoveHeader />
+          {content}
+          <LoveFooter onResetDate={handleResetDate} />
+        </div>
+      </main>
   );
 }

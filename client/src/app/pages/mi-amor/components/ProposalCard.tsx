@@ -5,14 +5,14 @@ type ProposalCardProps = { answered: boolean; date: Date; onAnswer: () => void }
 export function ProposalCard({ answered, date, onAnswer }: ProposalCardProps) {
   return (
     <section className="proposal-card">
-      <span className="eyebrow">CON TODO MI CORAZÓN</span>
+      <span className="eyebrow">CON TODO MI AMOR</span>
       <div className="proposal-heart">♥</div>
       {answered ? (
         <>
           <h1>
-            ¡Me haces <em>muy feliz!</em>
+            ¡Te amo <em> mucho!</em>
           </h1>
-          <p className="love-copy">Gracias por decir que sí, Mi amor. Esta es la primera página de una historia preciosa. ♡</p>
+          <p className="love-copy">Gracias por decir que sí, Mi amor. Quiero compartir mi vida y tiempo contigo.</p>
           <DatePill date={date} className="proposal-date" />
         </>
       ) : (
@@ -21,7 +21,7 @@ export function ProposalCard({ answered, date, onAnswer }: ProposalCardProps) {
             ¿Quieres ser <em>mi novia</em>?
           </h1>
           <p className="love-copy">
-            Mi amor, desde que llegaste a mi vida, cada día tiene algo más bonito. Me encantaría seguir creando momentos contigo.
+            Mi amor, desde el primer día me gustaste demasiado, y cada día me encantas más. Me encantaría seguir creando juntos.
           </p>
           <div className="answer-buttons">
             <button type="button" className="love-button" onClick={onAnswer}>
@@ -31,7 +31,7 @@ export function ProposalCard({ answered, date, onAnswer }: ProposalCardProps) {
               ¡Claro que sí! ✨
             </button>
           </div>
-          <p className="tiny-note">Gracias por compartir conmigo este momento tan especial.</p>
+          <p className="tiny-note">Gracias por cada momento que hemos compartido.</p>
         </>
       )}
     </section>

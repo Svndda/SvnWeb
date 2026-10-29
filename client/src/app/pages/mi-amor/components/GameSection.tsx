@@ -2,6 +2,7 @@ import { useSound } from '../audio/useSound';
 import type { CandyGame } from '../hooks/useCandyGame';
 import { CandyBoard } from './CandyBoard';
 import { DatePill } from './DatePill';
+import { LevelCompleteModal } from './LevelCompleteModal';
 import { ScoreBar } from './ScoreBar';
 import { SpecialGuide } from './SpecialGuide';
 import { WaitingCard } from './WaitingCard';
@@ -10,7 +11,7 @@ type GameSectionProps = { game: CandyGame; date: Date };
 
 export function GameSection({ game, date }: GameSectionProps) {
   const { play } = useSound();
-  const { board, selected, clearing, isBusy, score, level, target, moves, boardRef, selectCandy, reset } = game;
+  const { board, selected, clearing, isBusy, score, level, target, moves, boardRef, selectCandy, reset, levelCompleted } = game;
 
   const levelComplete = level > 1;
 
@@ -21,8 +22,10 @@ export function GameSection({ game, date }: GameSectionProps) {
 
   return (
     <section className="game-section">
+      {levelCompleted !== null && <LevelCompleteModal level={levelCompleted} nextLevel={levelCompleted + 1} />}
       <div className="game-heading">
         <span className="eyebrow">NIVEL {level} · HECHO CON AMOR</span>
+
         <h1>
           Un juego para <em>Mi amor</em>
         </h1>
