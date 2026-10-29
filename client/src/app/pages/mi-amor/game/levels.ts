@@ -6,16 +6,19 @@ export function targetForLevel(level: number): number {
     return FIRST_LEVEL_TARGET + (level - 1) * TARGET_STEP;
 }
 
-/** Suma puntos y sube de nivel las veces que haga falta (el sobrante pasa al siguiente nivel). */
-export function addPoints(
-    progress: { level: number; score: number },
+/**
+ * Calcula el puntaje sumado para el nivel actual.
+ * Si se alcanza o supera la meta, el puntaje se fija en la meta
+ * (desechando el sobrante) e indica que el nivel fue completado.
+ */
+export function addPointsToLevel(
+    currentScore: number,
     points: number,
-): { level: number; score: number } {
-    let { level, score } = progress;
-    score += points;
-    while (score >= targetForLevel(level)) {
-        score -= targetForLevel(level);
-        level += 1;
+    target: number,
+): { score: number; completed: boolean } {
+    const nextScore = currentScore + points;
+    if (nextScore >= target) {
+        return { score: target, completed: true };
     }
-    return { level, score };
+    return { score: nextScore, completed: false };
 }

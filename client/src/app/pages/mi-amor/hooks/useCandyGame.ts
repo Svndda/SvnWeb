@@ -7,10 +7,11 @@ import { settleBoard, type SettleResult } from '../game/settle';
 import type { Board, SpecialCandy } from '../types';
 import { useBoardAnimation } from './useBoardAnimation';
 import { useStableCallback } from './useStableCallback';
-import {CLEAR_DELAY_MS, POINTS_PER_CANDY} from '../constants';
-import { addPoints, targetForLevel } from '../game/levels';
+import { CLEAR_DELAY_MS, POINTS_PER_CANDY } from '../constants';
+import { addPointsToLevel, targetForLevel } from '../game/levels';
 
 const EMPTY_SET: ReadonlySet<number> = new Set();
+const LEVEL_TRANSITION_DELAY_MS = 2000;
 const wait = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
 
 const ACTIVATION_SOUND: Record<SpecialCandy, SfxName> = {
@@ -34,11 +35,14 @@ export function useCandyGame() {
   const [isBusy, setIsBusy] = useState(false);
   const [progress, setProgress] = useState({ level: 1, score: 0 });
   const [moves, setMoves] = useState(0);
+  const [levelCompleted, setLevelCompleted] = useState<number | null>(null);
 
   const boardRef = useRef<HTMLDivElement>(null);
   const busyRef = useRef(false);
   const aliveRef = useRef(true);
   const epochRef = useRef(0);
+  const progressRef = useRef(progress);
+  progressRef.current = progress;
   const animateBoard = useBoardAnimation(boardRef, setBoard);
 
   useEffect(() => {
@@ -50,10 +54,6 @@ export function useCandyGame() {
 
   const { level, score } = progress;
   const target = targetForLevel(level);
-
-  useEffect(() => {
-    if (level > 1) playSound('level-complete', { delay: 0.15 });
-  }, [level]);
 
   async function attemptSwap(from: number, to: number) {
     const original = board;
@@ -83,8 +83,38 @@ export function useCandyGame() {
       await animateBoard(result.board);
       if (isStale()) return;
       playSound('land');
-      setProgress((current) => addPoints(current, result.cleared * POINTS_PER_CANDY));
+
       setMoves((current) => current + 1);
+
+      const pointsEarned = result.cleared * POINTS_PER_CANDY;
+      const currentLevel = progressRef.current.level;
+      const currentScore = progressRef.current.score;
+      const currentTarget = targetForLevel(currentLevel);
+      const { score: newScore, completed } = addPointsToLevel(currentScore, pointsEarned, currentTarget);
+
+      if (completed) {
+        progressRef.current = { level: currentLevel, score: currentTarget };
+        setProgress({ level: currentLevel, score: currentTarget });
+        setLevelCompleted(currentLevel);
+        playSound('level-complete');
+
+        await wait(LEVEL_TRANSITION_DELAY_MS);
+        if (isStale()) return;
+
+        setLevelCompleted(null);
+
+        const nextLevel = currentLevel + 1;
+        const freshBoard = createBoard();
+        await animateBoard(freshBoard);
+        if (isStale()) return;
+
+        playSound('land');
+        progressRef.current = { level: nextLevel, score: 0 };
+        setProgress({ level: nextLevel, score: 0 });
+      } else {
+        progressRef.current = { level: currentLevel, score: newScore };
+        setProgress({ level: currentLevel, score: newScore });
+      }
     } finally {
       if (epoch === epochRef.current) {
         busyRef.current = false;
@@ -113,14 +143,16 @@ export function useCandyGame() {
     epochRef.current += 1;
     busyRef.current = false;
     setIsBusy(false);
+    setLevelCompleted(null);
     setBoard(createBoard());
+    progressRef.current = { level: 1, score: 0 };
     setProgress({ level: 1, score: 0 });
     setMoves(0);
     setSelected(null);
     setClearing(EMPTY_SET);
   }, []);
 
-  return { board, selected, clearing, isBusy, score, level, target, moves, boardRef, selectCandy, reset };
+  return { board, selected, clearing, isBusy, score, level, target, moves, boardRef, selectCandy, reset, levelCompleted };
 }
 
 export type CandyGame = ReturnType<typeof useCandyGame>;
